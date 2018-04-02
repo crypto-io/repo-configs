@@ -1,4 +1,4 @@
-import generate from 'ipfs-key-gen';
+import generate from '@vandeurenglenn/ipfs-key-gen';
 
 // TODO: hardcoded swarm key for leofcoin?
 
