@@ -9,14 +9,20 @@
   "license": "MIT",
   "private": false,
   "backed": {
-    "bundles": [{
-      "src": "src/index.js",
-      "dest": "dist/configs.js",
-      "format": "es"
-    }, {
-      "src": "src/index.js",
-      "dest": "dist/configs.js",
-      "format": "cjs"
-    }]
+    "bundles": [
+      {
+        "src": "src/index.js",
+        "dest": "dist/configs.js",
+        "format": "es"
+      },
+      {
+        "src": "src/index.js",
+        "dest": "dist/configs.js",
+        "format": "cjs"
+      }
+    ]
+  },
+  "dependencies": {
+    "ipfs-key-gen": "https://github.com/vandeurenglenn/js-ipfs-key-gen"
   }
 }

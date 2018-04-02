@@ -138,7 +138,7 @@ const config = {
   }
 };
 
-export const spec => {
+export const spec = {
   "mounts": [{
     "mountpoint":"/blocks",
     "path":"blocks",
@@ -166,13 +166,13 @@ export const bootstrap = [
   '/ip6/2400:6180:0:d0::151:6001/tcp/4001/ipfs/QmSoLSafTMBsPKadTEgaXctDQVcqN88CNLHXMkTNwMKPnu',
   '/ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64',
   '/ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd'
-]
+];
 
 /**
  * Returns config to pass to ipfs-repo when initializing & spec to write in repo as datastore_spec
  * @param {boolean} includeBootstrap include default bootstrap when true, default false
  */
-export default (includeBootstrap = false) => {
+export default (includeBootstrap = false) => new Promise((resolve, reject) => {
   generate((error, {privKey, peerID}) => {
     if (error) throw error;
     const config = repo;
@@ -181,9 +181,9 @@ export default (includeBootstrap = false) => {
       PeerID: peerID,
       PrivKey: privKey
     }
-    return {
+    resolve({
       config,
       spec
-    }
+    })
   })
-}
+});
