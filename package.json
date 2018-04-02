@@ -8,6 +8,13 @@
   "author": "vandeurenglenn <vandeurenglenn@gmail.com>",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "ipfs",
+    "repo",
+    "config",
+    "blockstore",
+    "bootstrap"
+  ],  
   "backed": {
     "bundles": [
       {

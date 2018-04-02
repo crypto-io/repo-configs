@@ -28,7 +28,7 @@ export const blockstore = {
   }
 }
 
-const config = {
+const repo = {
   API: {
     HTTPHeaders: {
       'Access-Control-Allow-Methods': [
@@ -172,18 +172,19 @@ export const bootstrap = [
  * Returns config to pass to ipfs-repo when initializing & spec to write in repo as datastore_spec
  * @param {boolean} includeBootstrap include default bootstrap when true, default false
  */
-export default (includeBootstrap = false) => new Promise((resolve, reject) => {
-  generate((error, {privKey, peerID}) => {
-    if (error) throw error;
-    const config = repo;
-    if (includeBootstrap) config.Bootstrap = bootstrap;
-    config.Identity = {
-      PeerID: peerID,
-      PrivKey: privKey
-    }
-    resolve({
-      config,
-      spec
-    })
-  })
+export const config = (includeBootstrap = false) => new Promise((resolve, reject) => {
+ generate((error, {privKey, peerID}) => {
+   if (error) throw error;
+   const config = repo;
+   if (includeBootstrap) config.Bootstrap = bootstrap;
+   config.Identity = {
+     PeerID: peerID,
+     PrivKey: privKey
+   }
+   resolve({
+     repo: config,
+     spec
+   })
+ })
 });
+export default config;
