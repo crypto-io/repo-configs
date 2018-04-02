@@ -30,6 +30,9 @@
     ]
   },
   "dependencies": {
-    "@vandeurenglenn/ipfs-key-gen": "^0.1.0"
+    "peer-id": "^0.10.6"
+  },
+  "devDependencies": {
+    "tape": "^4.9.0"
   }
 }

@@ -1,4 +1,4 @@
-import generate from '@vandeurenglenn/ipfs-key-gen';
+import { create } from 'peer-id';
 
 // TODO: hardcoded swarm key for leofcoin?
 
@@ -173,12 +173,13 @@ export const bootstrap = [
  * @param {boolean} includeBootstrap include default bootstrap when true, default false
  */
 export const config = (includeBootstrap = false) => new Promise((resolve, reject) => {
- generate((error, {privKey, peerID}) => {
+ create({ bits: 2048 }, (error, generated) => {
    if (error) throw error;
+   const { privKey, id, pubKey } = generated.toJSON();
    const config = repo;
    if (includeBootstrap) config.Bootstrap = bootstrap;
    config.Identity = {
-     PeerID: peerID,
+     PeerID: id,
      PrivKey: privKey
    }
    resolve({
