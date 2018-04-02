@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@vandeurenglenn/ipfs-key-gen@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@vandeurenglenn/ipfs-key-gen/-/ipfs-key-gen-0.1.0.tgz#0d84949e349d5171f8f886317e684fe70c8bbba9"
+  dependencies:
+    commander "^2.15.1"
+    libp2p-crypto "^0.12.1"
+    libp2p-crypto-secp256k1 "^0.2.2"
+
 asn1.js@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-1.0.3.tgz#281ba3ec1f2448fe765f92a4eecf883fe1364b54"
@@ -167,14 +175,6 @@ hmac-drbg@^1.0.0:
 inherits@^2.0.1, inherits@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
-
-"ipfs-key-gen@https://github.com/vandeurenglenn/js-ipfs-key-gen":
-  version "0.1.0"
-  resolved "https://github.com/vandeurenglenn/js-ipfs-key-gen#f225eaff2bda4b1ada365d500fae1a8799a8295a"
-  dependencies:
-    commander "^2.15.1"
-    libp2p-crypto "^0.12.1"
-    libp2p-crypto-secp256k1 "^0.2.2"
 
 is-promise@~1, is-promise@~1.0.0:
   version "1.0.1"

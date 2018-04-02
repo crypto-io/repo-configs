@@ -14,7 +14,7 @@
     "config",
     "blockstore",
     "bootstrap"
-  ],  
+  ],
   "backed": {
     "bundles": [
       {
@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "ipfs-key-gen": "https://github.com/vandeurenglenn/js-ipfs-key-gen"
+    "@vandeurenglenn/ipfs-key-gen": "^0.1.0"
   }
 }
