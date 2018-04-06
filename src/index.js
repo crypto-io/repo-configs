@@ -44,10 +44,10 @@ const repo = {
   Addresses: {
   	API: '/ip4/127.0.0.1/tcp/5001',
   	Announce: null,
-  	Gateway: '/ip4/127.0.0.1/tcp/9090',
+  	Gateway: '/ip4/127.0.0.1/tcp/8080',
   	NoAnnounce: null,
   	Swarm: [
-  		'/ip4/127.0.0.1/tcp/4001'
+  		'/ip4/0.0.0.0/tcp/4001'
   	]
   },
   Bootstrap: [],
@@ -126,10 +126,10 @@ const repo = {
   Swarm: {
   	AddrFilters: null,
   	ConnMgr: {
-  		GracePeriod: '20s',
-  		HighWater: 900,
-  		LowWater: 600,
-  		Type: 'basic'
+  		GracePeriod: '',
+  		HighWater: 0,
+  		LowWater: 0,
+  		Type: ''
 	  },
   	DisableBandwidthMetrics: false,
   	DisableNatPortMap: false,
