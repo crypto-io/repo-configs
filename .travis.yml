@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '7'
+- '8'
+- '9'
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+    - $(npm config get prefix)/lib/node_modules
+before_script:
+- yarn global add backed-cli
+- backed -b
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: vandeurenglenn@gmail.com
+  api_key:
+    secure: mK3iVgoIY/OmxrNUd7ayTkP6IaaVkKxrB6NOumKfl29G6QKGPvZuJqSihlLAm/QzjHvS82Ky1/Rtin5jRv+C2Fozme605IQI00a2x6qPVz0ur4CRGpoJKNHUyj4LbMH6uOPuY+HK49evu7eb4MTOjOcUMrjDVPhHGddTHoRrAvdeupeO7U02oXB9gtOAizs+umN2T6ZI8rKI8+uvUyhhbMOUkwiU5/9esdBV5wZnMOeBu1f17NjHxXP/EXZe3SpuDkD5jCMDHShUKxai72ah5y84V3TQR0LV3E9quwqrNfhrnJnCNo8BRz6Njd+QxMx106ETa7E3KihLRuSmoLZk4WX2SlLLHoINycrx9n7NS9/1Y6cXfl+yFor+ufssD006O8po7DSyLRcBnl9QXXYzS09Y8TF/bWanMcni/tiYlSO7tBitXcFzdX0Wd4hdZ5MGHTP13BdsBFque9gxiqp+X2XYsCWRaiMB5mfHv3LDj8heX149p3uP9afNNp+fh6xbKGHee9+sHwefbGo5GTUBBcg89ox8FjaY/ySZl5PZ+daoB6gtzwWckh/JHJjhyelssHngdXcVfCOq2La4ioBVQGl0LCo+i/tcBqcnX4cVrGRYT/Zqmq7lYWW0d2w2ydI5Pf46+d4TB12iqZ4bmXcd9IYqVo7E535nbo9YpiNbmEU=
+  on:
+    tags: true
+    repo: crypto-io/repo-configs
