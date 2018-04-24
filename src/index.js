@@ -10,9 +10,10 @@ import { spec, repo, blockstore, bootstrap } from './config/index';
  * @param {boolean} sharding Enable directory sharding
  */
 const config = options => new Promise((resolve, reject) => {
-  const { bootstrapFor, sharding, filestore } = options || {
+  const { bootstrapFor, sharding, filestore, relayHop } = options || {
     sharding: false,
-    filestore: false
+    filestore: false,
+    relayHop: false
   };
   if (bootstrapFor !== 'earth' &&
       bootstrapFor !== 'default' &&
@@ -24,6 +25,7 @@ const config = options => new Promise((resolve, reject) => {
     if (bootstrapFor) config.Bootstrap = bootstrap[bootstrapFor];
     config.Experimental.ShardingEnabled = sharding;
     config.Experimental.FilestoreEnabled = filestore;
+    config.Experimental.EnableRelayHop = relayHop;
     config.Identity = {
       PeerID: id,
       PrivKey: privKey
