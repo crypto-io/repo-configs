@@ -23,3 +23,20 @@ test('repo config with bootstrap for earth', tape => {
     bootstrapFor: 'earth'
   }).then(({ repo, spec }) => tape.ok(Boolean(repo.Bootstrap.length === 13)))
 });
+
+test('repo config with custom ports', tape => {
+  tape.plan(1);
+  const ports = {
+    swarm: 4002,
+    api: 5002,
+    gateway: 9090
+  }
+  config({ ports })
+    .then(({ repo, spec }) => {
+      tape.ok(Boolean(
+        repo.Addresses.API.includes(5002) &&
+        repo.Addresses.Gateway.includes(9090) &&
+        repo.Addresses.Swarm[0].includes(4002))
+      )
+    });
+});
