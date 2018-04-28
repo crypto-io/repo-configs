@@ -1,6 +1,6 @@
 {
   "name": "repo-configs",
-  "version": "0.3.2",
+  "version": "0.4.0-preview",
   "description": "IPFS repo configs",
   "main": "dist/configs-node.js",
   "module": "dist/configs-es.js",
