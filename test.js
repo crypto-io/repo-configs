@@ -20,8 +20,15 @@ test('repo config with sharding & filestore enabled', tape => {
 test('repo config with bootstrap for earth', tape => {
   tape.plan(1);
   config({
-    bootstrapFor: 'earth'
+    bootstrap: 'earth'
   }).then(({ repo, spec }) => tape.ok(Boolean(repo.Bootstrap.length === 13)))
+});
+
+test('repo config with bootstrap for leofcoin', tape => {
+  tape.plan(1);
+  config({
+    bootstrap: 'leofcoin'
+  }).then(({ repo, spec, netkey }) => tape.ok(Boolean(netkey !== undefined)))
 });
 
 test('repo config with custom ports', tape => {
