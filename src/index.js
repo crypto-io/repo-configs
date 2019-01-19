@@ -15,11 +15,13 @@ const config = options => new Promise((resolve, reject) => {
     sharding: false,
     filestore: false,
     relayHop: false,
+    autoNAT: false,
+    autoRelay: false,
     network: null,
     bootstrap: []
   }, options)
 
-  const { ports, sharding, filestore, relayHop } = options;
+  const { ports, sharding, filestore, relayHop, autoNAT, autoRelay } = options;
   let { bootstrap, network } = options
 
   if (Array.isArray(bootstrap))
@@ -58,7 +60,9 @@ const config = options => new Promise((resolve, reject) => {
     }
     config.Experimental.ShardingEnabled = sharding;
     config.Experimental.FilestoreEnabled = filestore;
-    config.Experimental.EnableRelayHop = relayHop;
+    config.Swarm.EnableRelayHop = relayHop;
+    config.Swarm.EnableAutoNATService = autoNAT;
+    config.Swarm.EnableAutoRelay = autoRelay;
     config.Identity = {
       PeerID: id,
       PrivKey: privKey

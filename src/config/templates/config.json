@@ -85,6 +85,8 @@
     "DisableNatPortMap": false,
     "DisableRelay": false,
     "EnableRelayHop": false,
+    "EnableAutoRelay": true,
+    "EnableAutoNATService": false,
     "ConnMgr": {
       "Type": "basic",
       "LowWater": 600,
@@ -100,5 +102,8 @@
     "FilestoreEnabled": false,
     "ShardingEnabled": false,
     "Libp2pStreamMounting": false
+  },
+  "Pubsub": {
+    "Router": "gossipsub"
   }
 }
