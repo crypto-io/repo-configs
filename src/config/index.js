@@ -4,7 +4,7 @@ import spec from './templates/spec.json';
 
 import earth from './templates/bootstrap/earth.json';
 import leofcoin from './templates/bootstrap/leofcoin/main.json';
-import olivia from './templates/bootstrap/leofcoin/testnet.json';
+import olivia from './templates/bootstrap/leofcoin/olivia.json';
 
 const bootstrap = {
   earth,
