@@ -55,7 +55,10 @@ const config = options => new Promise((resolve, reject) => {
     if (bootstrap) config.Bootstrap = bootstrap || [];
     if (ports) {
       if (ports.api) config.Addresses.API = config.Addresses.API.replace(5001, ports.api);
-      if (ports.swarm) config.Addresses.Swarm = config.Addresses.Swarm.map(address => address.replace(4001, ports.swarm));
+      if (ports.swarm) {
+        config.Addresses.Swarm = config.Addresses.Swarm.map(address => address.replace(4001, ports.swarm));
+        if (relayHop) config.Addresses.Swarm = [...config.Addresses.Swarm, ...config.Addresses.Swarm.map(address => address.replace(ports.swarm, `${ports.swarm + 3}/ws`))]
+      }
       if (ports.gateway) config.Addresses.Gateway = config.Addresses.Gateway.replace(8080, ports.gateway);
     }
     config.Experimental.ShardingEnabled = sharding;
