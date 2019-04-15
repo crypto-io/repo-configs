@@ -1,6 +1,6 @@
 {
   "name": "repo-configs",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "IPFS repo configs",
   "main": "index.js",
   "module": "src/index.js",
