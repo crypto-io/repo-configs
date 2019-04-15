@@ -9,8 +9,7 @@ cache:
     - 'node_modules'
     - $(npm config get prefix)/lib/node_modules
 before_script:
-- yarn global add backed-cli
-- backed -b
+  - npm run compile
 deploy:
   skip_cleanup: true
   provider: npm
