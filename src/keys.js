@@ -1,6 +1,4 @@
-import bs58 from 'bs58';
-
-const { decode } = bs58;
+import { decode } from 'bs58';
 
 const keys = {
   olivia: '4hehGGzqTNrGBZi8MBAMsmKW7sA1Q3YwrhrbKyESqVH7ziJcP3nhnvEGaKiLC16WGLkxgXfiRAhnSQN5LTdqcbSs9M9kLvNyQ1tEXD7Ey8w1gr2N73z7rddec8qiZyMEoN',
