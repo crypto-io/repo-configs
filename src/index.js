@@ -1,7 +1,16 @@
 import { create } from 'peer-id';
-import { merge } from 'lodash';
 import { spec, repo, blockstore, bootstrap as bootstrapFor } from './config/index';
 import keys from './keys';
+
+const defaultOptions = {
+  sharding: false,
+  filestore: false,
+  relayHop: false,
+  autoNAT: false,
+  autoRelay: false,
+  network: null,
+  bootstrap: []
+}
 
 /**
  * Returns config to pass to ipfs-repo when initializing & spec to write in repo as datastore_spec
@@ -11,15 +20,7 @@ import keys from './keys';
  * @param {boolean} relayHop Enable node to act as relay
  */
 const config = options => new Promise((resolve, reject) => {
-  options = merge({
-    sharding: false,
-    filestore: false,
-    relayHop: false,
-    autoNAT: false,
-    autoRelay: false,
-    network: null,
-    bootstrap: []
-  }, options)
+  options = { ...defaultOptions, ...options };
 
   const { ports, sharding, filestore, relayHop, autoNAT, autoRelay } = options;
   let { bootstrap, network } = options
@@ -85,4 +86,3 @@ export {
   config,
   keys
 }
-export default config;

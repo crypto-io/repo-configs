@@ -2,14 +2,16 @@
   "name": "repo-configs",
   "version": "0.5.1",
   "description": "IPFS repo configs",
-  "main": "dist/configs-node.js",
-  "module": "dist/configs-es.js",
+  "main": "index.js",
+  "module": "src/index.js",
   "repository": "https://github.com/crypto-io/repo-configs",
   "author": "vandeurenglenn <vandeurenglenn@gmail.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "compile": "rollup -c",
+    "bundle": "browserify index.js -o index.browser.js --standalone='repoConfigs'"
   },
   "keywords": [
     "ipfs",
@@ -18,32 +20,16 @@
     "blockstore",
     "bootstrap"
   ],
-  "backed": {
-    "bundles": [
-      {
-        "src": "src/index.js",
-        "dest": "dist/configs.js",
-        "format": "es",
-        "plugins": {
-          "json": {}
-        }
-      },
-      {
-        "src": "src/index.js",
-        "dest": "dist/configs.js",
-        "format": "cjs",
-        "plugins": {
-          "json": {}
-        }
-      }
-    ]
-  },
   "dependencies": {
-    "lodash": "^4.17.10",
     "peer-id": "^0.10.6"
   },
   "devDependencies": {
-    "rollup-plugin-json": "^2.3.0",
+    "browserify": "^16.2.3",
+    "rollup": "^1.10.0",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-json": "^2.3.1",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4",
     "tape": "^4.9.0"
   }
 }
