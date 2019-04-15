@@ -12,7 +12,7 @@
     "test": "node test.js",
     "compile": "rollup -c",
     "preversion": "npm run compile && npm run test",
-    "postversion": "git push"
+    "postversion": "sh tag.sh"
   },
   "keywords": [
     "ipfs",
