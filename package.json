@@ -11,8 +11,8 @@
   "scripts": {
     "test": "node test.js",
     "compile": "rollup -c",
-    "preversion": "npm run compile && npm run test",
-    "postversion": "git push"
+    "preversion": "npm run compile && npm run test && npm publish",
+    "prepublish": "git push"
   },
   "keywords": [
     "ipfs",
