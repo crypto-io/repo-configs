@@ -1,6 +1,6 @@
 {
   "name": "repo-configs",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "description": "IPFS repo configs",
   "main": "index.js",
   "module": "src/index.js",
@@ -11,7 +11,8 @@
   "scripts": {
     "test": "node test.js",
     "compile": "rollup -c",
-    "preversion": "npm run compile && npm run test && git push && npm publish"
+    "preversion": "npm run compile && npm run test",
+    "postversion": "git push && npm publish"
   },
   "keywords": [
     "ipfs",
